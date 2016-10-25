@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="images/favicon.ico" rel="shortcut icon">
+    <title>Massport Master</title>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Massport Master</h1>
+    <h2>Radio Database</h2>
+    <hr />
+    <div class='time'>{{time.timestamp}}</div>
+    <h3>Latest serials:</h3>
+    {% for sn in MassportMaster %}
+        <div class="sn">
+            <tr>
+                <td>{{sn.date}}</td>
+                <td>{{sn.serial_number}}</td>
+                <td>{{sn.model}}</td>
+            </tr>
+        </div>
+        <hr />
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>
