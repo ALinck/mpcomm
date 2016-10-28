@@ -217,7 +217,7 @@ class MassportMaster(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'massport master'
+        db_table = 'mpmaster'
 
 
 class RadioForm(ModelForm):

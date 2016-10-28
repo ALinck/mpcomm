@@ -11,4 +11,4 @@ def current_datetime(request):
 
 def home(request):
     entries = MassportMaster.objects.all()
-    return render_to_response('index.html', {'MassportMaster': entries[:10]})
+    return render_to_response('index.html', {'MassportMaster': entries[:20]})
