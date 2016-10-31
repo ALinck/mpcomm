@@ -29,6 +29,7 @@ class AccountManager(BaseUserManager):
 
         return account
 
+
 class Account(AbstractBaseUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=40, unique=True)
