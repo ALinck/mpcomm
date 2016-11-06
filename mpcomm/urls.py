@@ -28,12 +28,12 @@ urlpatterns = patterns(
      '',
     # ... URLs
     url(r'^api/v1/', include(router.urls)),
-
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home, name='home'),
     url('^.*$', IndexView.as_view(), name='index'),
 )
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home, name='home'),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()
