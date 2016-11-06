@@ -1,19 +1,10 @@
-<!DOCTYPE html>
+{% extends 'base.html %}
 
-<html lang="en">
+{% block title %}Massport Master{% endblock %}
 
-<head>
-    <meta charset="utf-8" />
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="static/style.css"/>
-    <link href="images/favicon.ico" rel="shortcut icon"/>
-    <script src="static/jquery-3.1.1.min.js"></script>
-    <title>Massport Master</title>
-</head>
+{% block content %}
 
-<body>
-
-    <div class="container">
+    <div id="content">
         <h1 id="title">Massport Master</h1>
         <h2 id="subtitle">Radio Database</h2>
         <hr />
@@ -46,6 +37,4 @@
 
     </div>
 
-</body>
-
-</html>
+{% endblock %}

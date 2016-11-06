@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'rest_framework',
+    'pipeline',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,46 @@ TEMPLATES = [
         },
     },
 ]
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+# browserify-specific
+PIPELINE_COMPILERS = (
+    'pipeline_browserify.compiler.BrowserifyCompiler',
+)
+
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.uglifyjs.UglifyJSCompressor'
+
+if DEBUG:
+    PIPELINE_BROWSERIFY_ARGUMENTS = '-t babelify'
+
+PIPELINE_CSS = {
+    'mpcomm_css': {
+        'source_filenames': (
+            'css/style.css',
+        ),
+        'output_filename': 'css/mpcomm_css.css',
+    },
+}
+
+PIPELINE_JS = {
+    'mpcomm_js': {
+        'source_filenames': (
+            'js/bower_components/jquery/dist/jquery.min.js',
+            'js/bower_components/react/JSXTransformer.js',
+            'js/bower_components/react/react-with-addons.js',
+            'js/app.browserify.js',
+        ),
+        'output_filename': 'js/mpcomm_js.js',
+    }
+}
 
 WSGI_APPLICATION = 'mpcomm.wsgi.application'
 
