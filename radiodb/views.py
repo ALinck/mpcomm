@@ -1,8 +1,11 @@
 from django.shortcuts import render_to_response
 from django.shortcuts import HttpResponse
 import datetime
-
 from radiodb.models import MassportMaster
+from django.views.generic.base import TemplateView
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
 
 def current_datetime(request):
     now = datetime.datetime.now()
