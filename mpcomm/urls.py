@@ -27,7 +27,6 @@ router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
 
 urlpatterns = [
-     '',
     # ... URLs
     url(r'^api/v1/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
