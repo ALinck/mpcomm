@@ -1,7 +1,5 @@
-from django.shortcuts import render
-
-from rest_framework import permissions, viewsets
-
+from rest_framework import permissions, viewsets, status
+from rest_framework.response import Response
 from authentication.models import Account
 from authentication.permissions import IsAccountOwner
 from authentication.serializers import AccountSerializer
